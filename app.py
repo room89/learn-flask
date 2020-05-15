@@ -13,7 +13,6 @@ def hello_world():
 
 @app.route('/sqrt', methods=['GET'])
 def add_message():
-    print(request.args)
     if 'value' not in request.args:
         return 'No value in request', 400
     response = {'result': math.sqrt(float(request.args['value']))}
@@ -23,7 +22,6 @@ def add_message():
 
 @app.route('/sum', methods=['GET'])
 def add_message_of_sum():
-    print(request.args)
     if 'value' not in request.args:
         return 'No value in request', 400
     total = sum([int(x) for x in request.args['value'].split('_')])
