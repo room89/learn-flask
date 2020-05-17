@@ -11,7 +11,7 @@ def hello_world():
 
 
 @app.route('/sqrt', methods=['GET'])
-def add_message():
+def sqrt():
     if 'value' not in request.args:
         return 'No value in request', 400
     response = {'result': math.sqrt(float(request.args['value']))}
