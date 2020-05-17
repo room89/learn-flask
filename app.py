@@ -1,8 +1,6 @@
 import math
 
 from flask import Flask, request, jsonify
-from time import sleep
-
 app = Flask(__name__)
 
 
@@ -17,17 +15,6 @@ def add_message():
         return 'No value in request', 400
     response = {'result': math.sqrt(float(request.args['value']))}
     return jsonify(response)
-
-
-
-@app.route('/sum', methods=['GET'])
-def add_message_of_sum():
-    if 'value' not in request.args:
-        return 'No value in request', 400
-    total = sum([int(x) for x in request.args['value'].split('_')])
-    response = {'result': total, 'Message': 'Evthg is fuckin awesome'}
-    return jsonify(response)
-
 
 
 @app.route('/sum', methods=['GET'])
